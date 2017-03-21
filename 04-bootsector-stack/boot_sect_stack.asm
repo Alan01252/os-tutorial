@@ -20,16 +20,19 @@ int 0x10
 ; recover our characters using the standard procedure: 'pop'
 ; We can only pop full words so we need an auxiliary register to manipulate
 ; the lower byte
-pop bx
-mov al, bl
+; see this page: http://flint.cs.yale.edu/cs421/papers/x86-asm/asm.html#registers
+; for information about registers
+
+pop bx ; removes the last entry placed into the stack and places it into bx
+mov al, bl ; copies bl ( the last 8 bits of bx ) into al
 int 0x10 ; prints C
 
-pop bx
-mov al, bl
+pop bx ; Puts the lat
+mov al, bl ; copies bl ( the last 8 bits of bx ) into al
 int 0x10 ; prints B
 
-pop bx
-mov al, bl
+pop bx ; removes the last entry placed into the stack and places it into bx
+mov al, bl ; copies bl ( the last 8 bits of bx ) into al
 int 0x10 ; prints A
 
 ; data that has been pop'd from the stack is garbage now
