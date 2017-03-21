@@ -11,7 +11,7 @@ start:
     je done
 
     ; the part where we print with the BIOS help
-    mov ah, 0x0e
+    mov ah, 0x0e ; remember from lesson 02 this sets tty mode
     int 0x10 ; 'al' already contains the char
 
     ; increment pointer and do next loop
