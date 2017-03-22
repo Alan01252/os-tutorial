@@ -60,6 +60,21 @@ I encourage you to write more small programs, which feature:
 - Pointers `pointers.c`
 
 Then compile and disassemble them, and examine the resulting machine code. Follow
-the os-guide.pdf for explanations. Try to answer this question: why does the
-disassemblement of `pointers.c` not resemble what you would expect? Where is
-the ASCII `0x48656c6c6f` for "Hello"?
+the os-guide.pdf for explanations.
+
+Try to answer these questions:
+
+- Why does the disassemblement of `pointers.c` not resemble what you would expect?
+- Where is the ASCII `0x48656c6c6f` for "Hello"?
+
+Hints:
+
+Try looking at the machine code output of the pointers.bin file for the ASCII
+
+Remember that the dissambler can't tell the difference between code and data, so the data can look like weird assembly instructions as far as ndisasm is concerned.
+
+Take a look at the objdump of the pointers.o file too. This might make it clearer
+
+objdump -D pointers.o
+
+
